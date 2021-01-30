@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "map_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/yibozhuang/udemy_go_course/map",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "map",
+    embed = [":map_lib"],
+    visibility = ["//visibility:public"],
+)

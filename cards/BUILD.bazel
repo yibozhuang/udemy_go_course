@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
+
+go_library(
+    name = "cards_lib",
+    srcs = [
+        "deck.go",
+        "main.go",
+    ],
+    importpath = "github.com/yibozhuang/udemy_go_course/cards",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "cards",
+    embed = [":cards_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "cards_test",
+    srcs = ["deck_test.go"],
+    embed = [":cards_lib"],
+)

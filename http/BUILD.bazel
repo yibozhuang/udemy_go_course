@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "http_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/yibozhuang/udemy_go_course/http",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "http",
+    embed = [":http_lib"],
+    visibility = ["//visibility:public"],
+)

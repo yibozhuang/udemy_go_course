@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "interfaces_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/yibozhuang/udemy_go_course/interfaces",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "interfaces",
+    embed = [":interfaces_lib"],
+    visibility = ["//visibility:public"],
+)

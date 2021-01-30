@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "abstract_factory_lib",
+    srcs = [
+        "main.go",
+        "shoe.go",
+        "short.go",
+        "sportFactory.go",
+    ],
+    importpath = "github.com/yibozhuang/udemy_go_course/design_patterns/abstract_factory",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "abstract_factory",
+    embed = [":abstract_factory_lib"],
+    visibility = ["//visibility:public"],
+)

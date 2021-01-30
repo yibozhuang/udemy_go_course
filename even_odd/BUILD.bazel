@@ -1,0 +1,14 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "even_odd_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/yibozhuang/udemy_go_course/even_odd",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "even_odd",
+    embed = [":even_odd_lib"],
+    visibility = ["//visibility:public"],
+)
