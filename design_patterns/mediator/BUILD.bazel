@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "mediator_lib",
+    srcs = [
+        "main.go",
+        "train.go",
+    ],
+    importpath = "github.com/yibozhuang/udemy_go_course/design_patterns/mediator",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "mediator",
+    embed = [":mediator_lib"],
+    visibility = ["//visibility:public"],
+)

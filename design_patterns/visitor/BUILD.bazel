@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "visitor_lib",
+    srcs = [
+        "main.go",
+        "shape.go",
+    ],
+    importpath = "github.com/yibozhuang/udemy_go_course/design_patterns/visitor",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "visitor",
+    embed = [":visitor_lib"],
+    visibility = ["//visibility:public"],
+)

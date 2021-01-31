@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "object_pool_lib",
+    srcs = [
+        "main.go",
+        "pool.go",
+    ],
+    importpath = "github.com/yibozhuang/udemy_go_course/design_patterns/object_pool",
+    visibility = ["//visibility:private"],
+)
+
+go_binary(
+    name = "object_pool",
+    embed = [":object_pool_lib"],
+    visibility = ["//visibility:public"],
+)
